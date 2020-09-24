@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class DataTest < Minitest::Test
@@ -26,8 +28,9 @@ class DataTest < Minitest::Test
     assert_equal "email@example.com", info[:email]
     assert_equal "Web Developer", info[:description]
     assert_equal "http://nandovieira.com", info.dig(:urls, :site)
-    assert_equal "https://www.producthunt.com/@fnando", info.dig(:urls, :profile)
-    assert_equal "https://ph-avatars.imgix.net/40304/original?auto=format&fit=crop&crop=faces&w=100&h=100", info[:image]
+    assert_equal "https://www.producthunt.com/@fnando",
+                 info.dig(:urls, :profile)
+    assert_equal "https://ph-avatars.imgix.net/40304/original?auto=format&fit=crop&crop=faces&w=100&h=100", info[:image] # rubocop:disable Layout/LineLength
   end
 
   test "returns uid" do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "omniauth"
 require "omniauth-oauth2"
 
@@ -20,7 +22,7 @@ module OmniAuth
       def authorize_params
         super.tap do |params|
           scope = params[:scope].to_s.split(/\s+/)
-          scope = scope.concat(DEFAULT_SCOPES.reject {|s| scope.include?(s) })
+          scope.concat(DEFAULT_SCOPES.reject {|s| scope.include?(s) })
           params[:scope] = scope.join(" ")
         end
       end

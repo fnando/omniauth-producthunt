@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "./lib/omniauth-producthunt/version"
 
 Gem::Specification.new do |spec|
@@ -5,10 +7,12 @@ Gem::Specification.new do |spec|
   spec.version       = Omniauth::ProductHunt::VERSION
   spec.authors       = ["Nando Vieira"]
   spec.email         = ["fnando.vieira@gmail.com"]
-  spec.summary       = "OmniAuth strategy for ProductHunt (https://producthunt.com)."
+  spec.summary       = "OmniAuth strategy for ProductHunt " \
+                       "(https://producthunt.com)."
   spec.description   = spec.summary
   spec.homepage      = "https://github.com/fnando/omniauth-producthunt"
   spec.license       = "MIT"
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) {|f| File.basename(f) }
@@ -21,6 +25,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "mocha"
   spec.add_development_dependency "pry-meta"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "rubocop-fnando"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "webmock"
 end
